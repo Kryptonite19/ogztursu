@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="">
+</head>
+
+<style>
+    .navigation {
+	 height: 70px;
+	 background: #262626;
+}
+ .brand {
+	 position: absolute;
+	 padding-left: 20px;
+	 float: left;
+	 line-height: 70px;
+	 text-transform: uppercase;
+	 font-size: 1.4em;
+}
+ .brand a, .brand a:visited {
+	 color: #fff;
+	 text-decoration: none;
+}
+ .nav-container {
+	 max-width: 1000px;
+	 margin: 0 auto;
+}
+ nav {
+	 float: right;
+}
+ nav ul {
+	 list-style: none;
+	 margin: 0;
+	 padding: 0;
+}
+ nav ul li {
+	 float: left;
+	 position: relative;
+}
+ nav ul li a, nav ul li a:visited {
+	 display: block;
+	 padding: 0 20px;
+	 line-height: 70px;
+	 background: #262626;
+	 color: #fff;
+	 text-decoration: none;
+}
+ nav ul li a:hover, nav ul li a:visited:hover {
+	 background: #2581dc;
+	 color: #fff;
+}
+ nav ul li a:not(:only-child):after, nav ul li a:visited:not(:only-child):after {
+	 padding-left: 4px;
+	 content: ' ▾';
+}
+ nav ul li ul li {
+	 min-width: 190px;
+}
+ nav ul li ul li a {
+	 padding: 15px;
+	 line-height: 20px;
+}
+ .nav-dropdown {
+	 position: absolute;
+	 display: none;
+	 z-index: 1;
+	 box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+/* Mobile navigation */
+ .nav-mobile {
+	 display: none;
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 background: #262626;
+	 height: 70px;
+	 width: 70px;
+}
+ @media only screen and (max-width: 798px) {
+	 .nav-mobile {
+		 display: block;
+	}
+	 nav {
+		 width: 100%;
+		 padding: 70px 0 15px;
+	}
+	 nav ul {
+		 display: none;
+	}
+	 nav ul li {
+		 float: none;
+	}
+	 nav ul li a {
+		 padding: 15px;
+		 line-height: 20px;
+	}
+	 nav ul li ul li a {
+		 padding-left: 30px;
+	}
+	 .nav-dropdown {
+		 position: static;
+	}
+}
+ @media screen and (min-width: 799px) {
+	 .nav-list {
+		 display: block !important;
+	}
+}
+ #nav-toggle {
+	 position: absolute;
+	 left: 18px;
+	 top: 22px;
+	 cursor: pointer;
+	 padding: 10px 35px 16px 0px;
+}
+ #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+	 cursor: pointer;
+	 border-radius: 1px;
+	 height: 5px;
+	 width: 35px;
+	 background: #fff;
+	 position: absolute;
+	 display: block;
+	 content: '';
+	 transition: all 300ms ease-in-out;
+}
+ #nav-toggle span:before {
+	 top: -10px;
+}
+ #nav-toggle span:after {
+	 bottom: -10px;
+}
+ #nav-toggle.active span {
+	 background-color: transparent;
+}
+ #nav-toggle.active span:before, #nav-toggle.active span:after {
+	 top: 0;
+}
+ #nav-toggle.active span:before {
+	 transform: rotate(45deg);
+}
+ #nav-toggle.active span:after {
+	 transform: rotate(-45deg);
+}
+ article {
+	 max-width: 1000px;
+	 margin: 0 auto;
+	 padding: 10px;
+}
+ 
+    	
+	@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+	
+	body {
+		margin: 0 auto;
+		width: 90%;
+		max-width: 1240px;
+		font-family: 'Roboto', sans-serif;
+		background-color: #f6f6f6;
+	}
+	
+	/* Typography */
+	
+	h1 {
+		font-size: 28px;
+		font-weight: 300;
+		flex: 1;
+	}
+	
+	h5 {
+		font-weight: 500;
+		line-height: 1.7em;
+	}
+	
+	h6 {
+		color: #666;
+		font-size: 14px;
+	}
+	.product-filter {
+		display: flex;
+		padding: 30px 0;
+	}
+	
+	.sort {
+		display: flex;
+		align-self: flex-end;
+	}
+	
+	.collection-sort {
+	 display: flex;
+		flex-direction: column;
+	}
+	
+	.collection-sort:first-child {
+		padding-right: 20px;
+	}
+	
+	label {
+		color: #666;
+		font-size: 10px;
+		font-weight: 500;
+		line-height: 2em;
+		text-transform: uppercase;
+	}
+	
+	.products {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.product-card {
+		display: flex;
+		flex-direction: column;
+		
+		padding: 2%;
+		flex: 1 16%;
+		
+		background-color: #FFF;
+		box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.25);
+	}
+	
+	.product-image img {
+		width: 100%;
+	}
+	
+	.product-info {
+		margin-top: auto;
+		padding-top: 20px;
+		text-align: center;
+	}
+	
+	@media ( max-width: 920px ) {
+		
+		.product-card {
+			flex: 1 21%;
+		}
+		
+		.products .product-card:first-child, 
+		.products .product-card:nth-child(2) {
+			flex: 2 46%;
+		}
+		
+	}
+	
+	@media ( max-width: 600px ) {
+		
+		.product-card {
+			flex: 1 46%;
+		}
+		
+	}
+	
+	@media ( max-width: 480px ) {
+		
+		h1 {
+			margin-bottom: 20px;
+		}
+		
+		.product-filter {
+			flex-direction: column;
+		}
+		
+		.sort {
+			align-self: flex-start;
+		}
+		
+	}
+
+
+    .show-cart li {
+  display: flex;
+}
+.card {
+  margin-bottom: 20px;
+}
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  align-self: center;
+}
+</style>
+<body>
+
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+<div class="wrapper">
+	<section class="navigation">
+        <div class="nav-container">
+          <div class="brand">
+            <a href="#!">OGZ Turşu</a>
+          </div>
+          <nav>
+            <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+            <ul class="nav-list">
+              <li>
+                <a href="#!">Anasayfa</a>
+              </li>
+              <li>
+                <a href="#!">Sepetim</a>
+                <ul class="nav-dropdown">
+                  <li>
+                    <a href="#!">logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+</div>
+</header>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Cart (<span class="total-count"></span>)</button>
+<button class="clear-cart btn btn-danger">Clear Cart</button>
+
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="show-cart table">
+            
+          </table>
+          <div>Total price: $<span class="total-cart"></span></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Order now</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<section class="products">
+        
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/acibiberbuyuk.png">
+        </div>
+        <div class="product-info">
+            <h5>ACI BİBER TURŞUSU 370 ML</h5>
+            <h6>$15.00</h6>
+        </div>
+        <a href="#" data-name="ACI BİBER TURŞUSU 370 ML" data-price="15" class="add-to-cart btn btn-primary">Add to cart</a>
+
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/biberiyebuyuk.png">
+        </div>
+        <div class="product-info">
+            <h5>BİBERİYE TURŞUSU 370 ML</h5>
+            <h6>$99.99</h6>
+        </div>
+    <button class="add-to-cart" type="button">Add to cart</button>
+
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/biberiyebuyukk.png">
+        </div>
+        <div class="product-info">
+            <h5>BİBERİYE TURŞUSU 2650 ML</h5>
+            <h6>$99.99</h6>
+        </div>
+    <button class="add-to-cart" type="button">Add to cart</button>
+
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/cuccu-large2.png">
+        </div>
+        <div class="product-info">
+            <h5>CÜCCÜ KORNİŞON TURŞUSU 370 ML</h5>
+            <h6>$99.99</h6>
+        </div>
+    <button class="add-to-cart" type="button">Add to cart</button>
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/egeusulubuyuk.png">
+        </div>
+        <div class="product-info">
+            <h5>EGE USULÜ KORNİŞON TURŞUSU 720 ML</h5>
+            <h6>$99.99</h6>
+        </div>
+    <button class="add-to-cart" type="button">Add to cart</button>
+
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/gevurs26501l.png">
+        </div>
+        <div class="product-info">
+            <h5>GEWÜRZGURKEN 2650 ML</h5>
+            <h6>$99.99</h6>
+        </div>
+    <button class="add-to-cart" type="button">Add to cart</button>
+
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/gevurzgurkenbuyuk.png">
+        </div>
+        <div class="product-info">
+            <h5>GEWÜRZGURKEN 720 ML</h5>
+            <h6>$99.99</h6>
+        </div>
+    <button class="add-to-cart" type="button">Add to cart</button>
+
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/grilgurkenbuyuk.png">
+        </div>
+        <div class="product-info">
+            <h5>GRİLL GURKEN 720 ML</h5>
+            <h6>$99.99</h6>
+        </div>
+    <button class="add-to-cart" type="button">Add to cart</button>
+
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/kornisonbuyuk_0.png">
+        </div>
+        <div class="product-info">
+            <h5>Winter Jacket</h5>
+            <h6>$99.99</h6>
+        </div>
+    <button class="add-to-cart" type="button">Add to cart</button>
+
+    </div>
+
+    <div class="product-card">
+        <div class="product-image">
+            <img src="../images/kornisonbuyuk.png">
+        </div>
+        <div class="product-info">
+            <h5>Winter Jacket</h5>
+            <h6>$99.99</h6>
+        </div>
+    <button class="add-to-cart" type="button">Add to cart</button>
+
+    </div>
+    
+</section>
+
+
+<script src="index.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+</body>
+</html>
